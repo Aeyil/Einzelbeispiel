@@ -31,6 +31,7 @@ public class MatNrThread extends Thread {
             inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             outToServer.writeBytes(input + "\n");
             Message msg = Message.obtain();
+            msg.arg1 = 0;
             msg.obj = inFromServer.readLine();
             handler.sendMessage(msg);
             clientSocket.close();
